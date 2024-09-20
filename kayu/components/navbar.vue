@@ -1,33 +1,33 @@
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
+    import { ref, onMounted, onBeforeUnmount } from 'vue'
+    import { useRouter } from 'vue-router'
 
-const isScrolled = ref(false)
-const isMenuOpen = ref(false)
-const isSearchOpen = ref(false)
-const router = useRouter()
+    const isScrolled = ref(false)
+    const isMenuOpen = ref(false)
+    const isSearchOpen = ref(false)
+    const router = useRouter()
 
-const isActive = (path: string) => router.currentRoute.value.path === path
+    const isActive = (path: string) => router.currentRoute.value.path === path
 
-    const handleScroll = () => {
-        isScrolled.value = window.scrollY > 50
-    }
+        const handleScroll = () => {
+            isScrolled.value = window.scrollY > 50
+        }
 
-    onMounted(() => {
-        window.addEventListener('scroll', handleScroll)
-    })
+        onMounted(() => {
+            window.addEventListener('scroll', handleScroll)
+        })
 
-    onBeforeUnmount(() => {
-        window.removeEventListener('scroll', handleScroll)
-    })
+        onBeforeUnmount(() => {
+            window.removeEventListener('scroll', handleScroll)
+        })
 
-    const toggleMenu = () => {
-        isMenuOpen.value = !isMenuOpen.value
-    }
+        const toggleMenu = () => {
+            isMenuOpen.value = !isMenuOpen.value
+        }
 
-    const toggleSearch = () => {
-        isSearchOpen.value = !isSearchOpen.value
-    }
+        const toggleSearch = () => {
+            isSearchOpen.value = !isSearchOpen.value
+        }
 </script>
 
 <template>
@@ -37,7 +37,7 @@ const isActive = (path: string) => router.currentRoute.value.path === path
         </div>
 
         <!-- tombol search -->
-        <div class="absolute h-full flex items-center right-20 sm:right-20 z-50">
+        <div class="absolute h-full flex items-center right-16 sm:right-20 z-50">
             <button @click="toggleSearch" class="focus:outline-none">
                 <svg v-if="!isSearchOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -63,7 +63,7 @@ const isActive = (path: string) => router.currentRoute.value.path === path
         </form>
 
         <!-- Hamburger Icon -->
-        <div class="absolute h-full flex lg:hidden items-center left-20 ">
+        <div class="absolute h-full flex lg:hidden items-center left-16 ">
             <button @click="toggleMenu" class="focus:outline-none">
                 <div :class="['w-6 h-1 bg-color6 mb-1 transition-all duration-300', isMenuOpen ? 'rotate-45 translate-y-2' : '']"></div>
                 <div :class="['w-6 h-1 bg-color6 mb-1 transition-all duration-300', isMenuOpen ? 'opacity-0' : '']"></div>
@@ -90,7 +90,7 @@ const isActive = (path: string) => router.currentRoute.value.path === path
         <nav :class="['transition-all duration-300 flex items-center w-full', {'border-none h-16 sm:h-16 md:h-16 lg:h-20 bg-none': !isScrolled, 'bg-white border shadow-full shadow-black/5 h-16 sm:h-16 md:h-16 lg:h-16 rounded-b-full':isScrolled}]">
             <ul class="hidden lg:flex w-full h-[50%] justify-center items-center text-xs lg:text-sm font-bold tracking-widest gap-3 text-color4">
                 <li class="md:px-5 lg:px-7 h-full flex items-center">
-                    <NuxtLink :class="{'hover:border-none text-color8' : isActive('/')}" class="hover:border-b hover:border-b-color6" to="/">HOME</NuxtLink>
+                    <NuxtLink :class="{'hover:border-none text-color8' : isActive('/')}" class=" hover:border-b hover:border-b-color6" to="/">HOME</NuxtLink>
                 </li>
                 <li class="md:px-5 lg:px-7 h-full flex items-center">
                     <NuxtLink :class="{'hover:border-none text-color8' : isActive('/about')}" class="hover:border-b hover:border-color6" to="/about">ABOUT US</NuxtLink>

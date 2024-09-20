@@ -14,7 +14,7 @@
             <h1 class="font-dm px-20 text-color7 font-extrabold text-lg md:text-xl lg:text-3xl text-center tracking-widest">JUAL BELI KAYU ASLI INDONESIA</h1>
         </div>
         <div class="w-full h-auto flex">
-            <div class="w-full h-auto rounded-3xl mx-10 md:mx-20 lg:mx-20 bg-color4/20 justify-center flex flex-wrap lg:flex-row md:flex-row gap-10 p-10">
+            <div class="w-full h-auto rounded-3xl mx-5 md:mx-20 lg:mx-20 bg-color4/20 justify-center flex flex-wrap lg:flex-row md:flex-row gap-10 p-10">
                 <div class="w-full lg:max-w-72 h-auto py-3 rounded-3xl flex flex-col justify-center items-center gap-10">
                     <div class="w-full h-full px-5 gap-5 flex flex-col">
                         <img class="h-1/2" src="D:\project\kayu\assets\kayu1.png" alt="">
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-auto px-10 md:px-20 lg:px-20 gap-10 flex flex-col">
+        <div class="w-full h-auto px-5 md:px-20 lg:px-20 gap-10 flex flex-col">
             <div class="font-dm w-full flex justify-center text-center font-extrabold text-3xl text-color7 tracking-widest">
                 <h1>DAFTAR HARGA</h1>
             </div>
