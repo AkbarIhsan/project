@@ -15,7 +15,13 @@
             </div>
             <div class="flex flex-row gap-5 font-bold font-dm text-xs relative">
                 <div class="h-full flex flex-row gap-2 items-center text-color2">
-                    <button @click="toggleLo" class="flex flex-col lg:flex-row items-center">
+                    <button @click="toggleLo" class="flex lg:hidden flex-col lg:flex-row items-center">
+                        <div class="w-7 h-7 rounded-full">
+                            <img src="@\assets\akun.png" alt="">
+                        </div>
+                        <h1>Admin</h1>
+                    </button>
+                    <button class="flex flex-col lg:flex-row items-center cursor-default">
                         <div class="w-7 h-7 rounded-full">
                             <img src="@\assets\akun.png" alt="">
                         </div>
