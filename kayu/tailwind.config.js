@@ -6,6 +6,9 @@ export default {
       boxShadow:{
         'full': '0 0 15px 5px rgba(0, 0, 0, 0.3)',
       },
+      zIndex:{
+        '60': '60',
+      },
       colors:{
         'color1': 'rgb(253, 236, 211)',
         'color2': 'rgb(92, 25, 27)',
