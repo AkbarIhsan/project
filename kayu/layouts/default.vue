@@ -1,6 +1,6 @@
 <template>
     <Navbar/>
-    <div class="w-full h-auto flex flex-col bg-color2 overflow-hidden">
+    <div class="w-full h-auto flex flex-col overflow-hidden">
         <slot/>
         <Buttonwa/>
         <Footer/>
