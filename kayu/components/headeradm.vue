@@ -21,7 +21,7 @@
                         </div>
                         <h1>Admin</h1>
                     </button>
-                    <button class="flex flex-col lg:flex-row items-center cursor-default">
+                    <button class="hidden lg:flex flex-col lg:flex-row items-center cursor-default">
                         <div class="w-7 h-7 rounded-full">
                             <img src="@\assets\akun.png" alt="">
                         </div>
