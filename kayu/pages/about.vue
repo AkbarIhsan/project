@@ -18,12 +18,12 @@
             </div>
             <div class="w-full justify-center items-center hidden lg:flex">
                 <div class="absolute w-72 h-[500px] rotate-[25deg] shadow-full">
-                    <img class="w-full h-full" src="D:\project\kayu\assets\pohonbg.jpg" alt="">
+                    <img class="w-full h-full" src="@\assets\pohonbg.jpg" alt="">
                 </div>
             </div>
         </div>
         <div class="absolute hidden lg:flex w-40 right-72 -top-32 h-[600px] rotate-[-59deg] overflow-hidden">
-            <img class="w-full h-full" src="D:\project\kayu\assets\hiasan.png" alt="">
+            <img class="w-full h-full" src="@\assets\hiasan.png" alt="">
         </div>
     </div>
 

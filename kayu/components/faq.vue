@@ -16,8 +16,8 @@
         </div>
         <div class="z-40">
             <button @click="toggleFaq" class="w-6 h-6 cursor-pointer flex items-center">
-                <img v-if="!isFaqOpen" class="w-6 h-6 rotate-180" src="d:\project\kayu\assets\arrow.png" alt="">
-                <img v-else class="w-6 h-6" src="D:\project\kayu\assets\arrow.png" alt="">
+                <img v-if="!isFaqOpen" class="w-6 h-6 rotate-180" src="@\assets\arrow.png" alt="">
+                <img v-else class="w-6 h-6" src="@\assets\arrow.png" alt="">
             </button>
         </div>
     </div>

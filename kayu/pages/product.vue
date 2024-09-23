@@ -6,6 +6,7 @@
         { id: 2, category: 'BALOK', image: '/assets/balok.jpg', price: '1.200.000', size: '5X5X500cm', quantity: 50 },
         { id: 3, category: 'PAPAN', image: '/assets/papan.jpg', price: '2.500.000', size: '3X10X300cm', quantity: 200 },
         { id: 4, category: 'TRIPLEK', image: '/assets/triplek.jpg', price: '500.000', size: '3mmX244X122cm', quantity: 100 },
+        { id: 5, category: 'KASO', image: '/assets/kaso.jpg', price: '1.054.333', size: '4X6X400cm', quantity: 104 },
     ])
 
     const selectedCategory = ref('ALL')

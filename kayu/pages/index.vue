@@ -1,6 +1,6 @@
 <template>
     <div class="w-full h-screen relative bg-color1/20 z-30">
-        <img class="absolute w-full h-full bg-cover z-0" src="D:\project\kayu\assets\bgkayu.png" alt="">
+        <img class="absolute w-full h-full bg-cover z-0" src="@\assets\bgkayu.png" alt="">
         <div class="flex flex-col-reverse gap- h-full items-center justify-center pb-20 px-20">
             <!-- <h3 class="absolute text-color7 top-32 text-lg font-dm">#Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, nulla.</h3> -->
             <NuxtLink class="border border-color6 text-color6 hover:scale-95 text-xs lg:text-base font-extrabold rounded-3xl mt-5 py-3 px-7 z-30" to="product">PESAN SEKARANG</NuxtLink>
@@ -18,7 +18,7 @@
             <div class="w-full h-auto rounded-3xl mx-5 md:mx-20 lg:mx-20 bg-color4/20 justify-center flex flex-wrap lg:flex-row md:flex-row gap-10 text-color6">
                 <div class="w-full lg:max-w-72 h-auto py-10 rounded-3xl flex flex-col justify-center items-center gap-10">
                     <div class="w-full h-full px-5 lg:px-0 gap-5 flex flex-col justify-center items-center">
-                        <img class="animate-bounce w-20 h-20" src="D:\project\kayu\assets\star.png" alt="">
+                        <img class="animate-bounce w-20 h-20" src="@\assets\star.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">BERKUALITAS</h1>
                             <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="w-full lg:max-w-96 h-auto py-10 bg-color5/10 flex flex-col justify-center items-center gap-10">
                     <div class="w-full h-full px-5 lg:px-7 gap-5 flex flex-col justify-center items-center">
-                        <img class="animate-bounce w-20 h-20" src="D:\project\kayu\assets\discount.png" alt="">
+                        <img class="animate-bounce w-20 h-20" src="@\assets\discount.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">TERJANGKAU</h1>
                             <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="w-full lg:max-w-72 h-auto py-10 rounded-3xl flex flex-col justify-center items-center gap-10">
                     <div class="w-full h-full px-5 lg:px-0 gap-5 flex flex-col justify-center items-center">
-                        <img class="animate-bounce w-20 h-20" src="D:\project\kayu\assets\product.png" alt="">
+                        <img class="animate-bounce w-20 h-20" src="@\assets\product.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">KUANTITAS</h1>
                             <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
