@@ -7,7 +7,7 @@
             <h1 class="font-archivo font-extrabold text-center text-7xl lg:text-[7rem] text-color6 text-shadow-lg">
                 PADI JAYA!
             </h1>
-            <h6 class="text-color6 font-pixelify text-xl tracking-widest text-center">SELAMAT DATANG DI </h6>
+            <h6 class="text-color6 font-dm text-xl tracking-widest text-center">SELAMAT DATANG DI </h6>
         </div>
     </div>
     <div class="w-full h-auto pb-20 flex flex-col justify-center relative overflow-hidden gap-20 bg-color1/20 z-20">
@@ -54,21 +54,23 @@
             <table class="w-full font-dm">
                 <thead>
                     <tr class="text-center">
-                        <th colspan="4" class="bg-color2 text-color1 rounded-t-3xl py-3">Kaso</th>
+                        <th colspan="5" class="bg-color2 text-color1 rounded-t-3xl py-3">Bonded</th>
                     </tr>
-                    <tr class="bg-color4/20 text-color2">
+                    <tr class="bg-color4/20 text-color2 text-center">
                         <th>Jenis Kayu</th>
+                        <th>Kayu</th>
                         <th>Ukuran</th>
                         <th>Isi/m3</th>
                         <th>Harga</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td>borneo</td>
-                        <td>14x12</td>
-                        <td>104btg</td>
-                        <td>1.054.333</td>
+                    <tr v-for="(bondedwood) in bondedwoods" :key="bondedwood.id" class="text-center">
+                        <td>{{ bondedwood.type_name }}</td>
+                        <td>{{ bondedwood.wood_name }}</td>
+                        <td>{{ bondedwood.size }}</td>
+                        <td>{{ bondedwood.quantity }}</td>
+                        <td>{{ bondedwood.price }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -76,69 +78,87 @@
             <table class="w-full font-dm">
                 <thead>
                     <tr class="text-center">
-                        <th colspan="4" class="bg-color2 text-color1 rounded-t-3xl py-3">Balok</th>
+                        <th colspan="5" class="bg-color2 text-color1 rounded-t-3xl py-3">Non Bonded</th>
                     </tr>
-                    <tr class="bg-color4/20 text-color2">
+                    <tr class="bg-color4/20 text-color2 text-center">
                         <th>Jenis Kayu</th>
+                        <th>Kayu</th>
                         <th>Ukuran</th>
-                        <th>Isi/m3</th>
                         <th>Harga</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td>borneo</td>
-                        <td>14x12</td>
-                        <td>104btg</td>
-                        <td>1.054.333</td>
+                    <tr v-for="(nonbondedwood) in nonbondedwoods" :key="nonbondedwood.id" class="text-center">
+                        <td>{{ nonbondedwood.type_name }}</td>
+                        <td>{{ nonbondedwood.wood_name }}</td>
+                        <td>{{ nonbondedwood.size }}</td>
+                        <td>{{ nonbondedwood.price }}</td>
                     </tr>
                 </tbody>
             </table>
-
-            <table class="w-full font-dm">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="4" class="bg-color2 text-color1 rounded-t-3xl py-3">Papan</th>
-                    </tr>
-                    <tr class="bg-color4/20 text-color2">
-                        <th>Jenis Kayu</th>
-                        <th>Ukuran</th>
-                        <th>Isi/m3</th>
-                        <th>Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td>borneo</td>
-                        <td>14x12</td>
-                        <td>104btg</td>
-                        <td>1.054.333</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="w-full font-dm">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="4" class="bg-color2 text-color1 rounded-t-3xl py-3">Triplek</th>
-                    </tr>
-                    <tr class="bg-color4/20 text-color2">
-                        <th>Jenis Kayu</th>
-                        <th>Ukuran</th>
-                        <th>Isi/m3</th>
-                        <th>Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td>borneo</td>
-                        <td>14x12</td>
-                        <td>104btg</td>
-                        <td>1.054.333</td>
-                    </tr>
-                </tbody>
-            </table>
-
         </div>
     </div>
 </template>
+
+<script lang="ts" setup>
+    import { onMounted } from 'vue';
+
+    interface ApiResponse<T> {
+        message: string;
+        data: T;
+    }
+
+
+    interface Bonded_woods {
+        id: number;
+        type_name: string; // Tambahkan type_name
+        wood_name: string; // Tambahkan wood_name
+        image: string;
+        size: string;
+        price: number;
+        quantity: string;
+    }
+
+    interface Non_Bonded_woods {
+        id: number;
+        type_name: string; // Tambahkan type_name
+        wood_name: string; // Tambahkan wood_name
+        image: string;
+        size: string;   
+        price: number;
+        quantity: string;
+    }
+
+    // State untuk menyimpan data produk
+    const bondedwoods = ref<Bonded_woods[]>([]);
+    const nonbondedwoods = ref<Non_Bonded_woods[]>([]);
+
+    // Fungsi untuk fetch data dari API
+    const fetchBwood = async () => {
+        try {
+            const response = await useNuxtApp().$axios.get<Bonded_woods[]>('/productBonded', {
+            });
+            bondedwoods.value = response.data;
+            console.log('Data fetched:', response.data); // Cek data respons di sini
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+
+    const fetchNBwood = async () => {
+        try {
+            const response = await useNuxtApp().$axios.get<ApiResponse<Non_Bonded_woods[]>>('/productNonBonded', {
+            });
+            nonbondedwoods.value = response.data.data; // Mengakses data dari properti 'data'
+            console.log('Data fetched:', response.data.data);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+
+
+    onMounted(()=>{
+        fetchNBwood();
+        fetchBwood();
+    });
+</script>

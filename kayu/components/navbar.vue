@@ -5,6 +5,7 @@
     const isScrolled = ref(false)
     const isMenuOpen = ref(false)
     const isSearchOpen = ref(false)
+    const searchQuery = ref('')
     const router = useRouter()
 
     const isActive = (path: string) => router.currentRoute.value.path === path
@@ -28,6 +29,25 @@
         const toggleSearch = () => {
             isSearchOpen.value = !isSearchOpen.value
         }
+
+        const searchInPage = () => {
+            const query = searchQuery.value
+            if (query) {
+                // Menggunakan parameter ketiga untuk mencari dari awal (true)
+                let found = (window as any).find(query, false, false, true)
+
+                // Jika tidak ditemukan, ulangi pencarian dari awal dokumen
+                if (!found) {
+                    found = (window as any).find(query, false, false, true)
+                }
+
+                // Jika tetap tidak ditemukan, beri pesan
+                if (!found) {
+                    alert(`Teks "${query}" tidak ditemukan.`)
+                }
+            }
+        }
+
 </script>
 
 <template>
@@ -49,7 +69,7 @@
         </div>
 
         <!-- search -->
-        <form v-if="isSearchOpen" class="absolute w-[80%] top-20 transition-all">
+        <div v-if="isSearchOpen" class="absolute w-[80%] top-20 transition-all">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative flex items-center">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -57,10 +77,17 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="shadow-full shadow-black/20 w-full py-3 ps-10 text-sm text-gray-900 border border-color6 rounded-full bg-gray-50 focus:ring-color6 focus:border-color6" placeholder="Kayu Jati, Kayu Tangan,.." required />
-                <button type="submit" class="text-white absolute end-0 bottom- bg-color6 hover:bg-color6/95 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-r-full text-xs px-3 h-full dark:bg-color6 dark:hover:bg-color6 dark:focus:ring-color6">Search</button>
+                <input 
+                    v-model="searchQuery" 
+                    type="search" 
+                    id="default-search" 
+                    class="shadow-full shadow-black/20 w-full py-3 ps-10 text-sm text-gray-900 border border-color6 rounded-full bg-gray-50 focus:ring-color6 focus:border-color6" 
+                    placeholder="Cari teks di halaman..." 
+                    required 
+                />
+                <button @click="searchInPage" type="submit" class="text-white absolute end-0 bottom- bg-color6 hover:bg-color6/95 focus:ring-4 focus:outline-none focus:ring-color6 font-medium rounded-r-full text-xs px-3 h-full dark:bg-color6 dark:hover:bg-color6 dark:focus:ring-color6">Search</button>
             </div>
-        </form>
+        </div>
 
         <!-- Hamburger Icon -->
         <div class="absolute h-full flex lg:hidden items-center left-16 ">
