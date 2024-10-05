@@ -27,7 +27,7 @@
                         <h1 class="text-color2 font-semibold">Follow Us</h1>
                     </div>
                     <div class="flex-col flex font-thin text-color3 text-sm">
-                        <NuxtLink to="">Instagram</NuxtLink>
+                        <NuxtLink to="">Facebook</NuxtLink>
                         <NuxtLink to="">WhatsApp</NuxtLink>
                         <NuxtLink to="">Email</NuxtLink>
                     </div>

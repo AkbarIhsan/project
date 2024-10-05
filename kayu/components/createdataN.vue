@@ -91,7 +91,7 @@ const submitForm = async () => {
         console.log('Form Data:', Array.from(formDataToSubmit.entries()));
 
         // Mengirim permintaan POST
-        const response = await axios.post('http://localhost:8000/api/non-bonded-woods', formDataToSubmit, {
+        const response = await axios.post('http://api.udpadijaya.com/api/non-bonded-woods', formDataToSubmit, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -154,7 +154,7 @@ onMounted(fetchDropdownData);
 
             <div class="w-full lg:w-[45%] flex flex-col gap-2">
                 <label for="price">Harga</label>
-                <input v-model="formData.price" class="text-sm w-full h-11 font-dm border px-3 text-color6 placeholder:text-color4 rounded-lg focus:ring-color3 focus:border-color2" placeholder="Masukkan Harga" type="text" />
+                <input v-model="formData.price" class="text-sm w-full h-11 font-dm border px-3 text-color6 placeholder:text-color4 rounded-lg focus:ring-color3 focus:border-color2" placeholder="Masukkan Harga" type="number" />
             </div>
 
             <div class="w-full lg:w-[45%] flex flex-col gap-2">

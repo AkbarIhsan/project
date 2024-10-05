@@ -218,7 +218,7 @@
     <div class="w-full h-auto flex flex-col font-dm">
         <Headeradm />
         <ModalsContainer/>
-        <div class="w-full h-auto flex flex-col lg:px-20 px-5">
+        <div class="w-full h-auto flex flex-col pt-10 lg:px-20 px-5">
             <div class="w-full py-10 gap-2 flex flex-col">
                 <h1 class="font-extrabold text-color2 lg:text-4xl">SELAMAT DATANG, Admin</h1>
                 <h2 class="text-color3 text-xs">Silahkan edit product yang ingin anda tampilkan di website</h2>
@@ -227,10 +227,10 @@
                 <div class="py-5 flex flex-col justify-center gap-5">
                     <h1 class="text-3xl font-extrabold text-color2">Daftar Product</h1>
                     <div class="flex flex-row gap-2">
-                        <button @click="openCreateModal" class="text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Data Bonded</button>
-                        <button @click="openCreateNModal" class="text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Data Non Bonded</button>
-                        <button @click="openTypeModal" class="text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Jenis Kayu</button>
-                        <button @click="openWoodModal" class="text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Kayu</button>
+                        <button @click="openCreateModal" class="text-xs lg:text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Data Bonded</button>
+                        <button @click="openCreateNModal" class="text-xs lg:text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Data Non Bonded</button>
+                        <button @click="openTypeModal" class="text-xs lg:text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Jenis Kayu</button>
+                        <button @click="openWoodModal" class="text-xs lg:text-sm font-bold px-5 py-3 bg-blue-800 hover:bg-blue-800/95 rounded-3xl text-white">Tambah Kayu</button>
                     </div>
                     <table class="w-full text-sm lg:text-base">
                         <thead>
@@ -256,7 +256,7 @@
                                 <td>{{ bondedwood.size }}</td>
                                 <td>{{ bondedwood.quantity }}</td>
                                 <td>{{ bondedwood.price }}</td>
-                                <td class="w-32"><img :src="`http://localhost:8000/storage/${bondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
+                                <td class="w-32"><img :src="`http://api.udpadijaya.com/storage/${bondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
                                 <td class="w-44 flex flex-row gap-2 items-center justify-center py-2 text-xs">
                                     <button @click="() => $router.push(`/admin/updateB/${bondedwood.id}`)" class="bg-color3 hover:bg-color3/95 text-white px-3 py-2 rounded-3xl">Ubah</button>
                                     <button @click="deleteKayu(bondedwood.id)" class="bg-red-700 hover:bg-red-700/95 text-white px-3 py-2 rounded-3xl">Hapus</button>
@@ -287,7 +287,7 @@
                                 <td>{{ nonbondedwood.wood_name }}</td>
                                 <td>{{ nonbondedwood.size }}</td>
                                 <td>{{ nonbondedwood.price }}</td>
-                                <td class="w-32"><img :src="`http://localhost:8000/storage/${nonbondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
+                                <td class="w-32"><img :src="`http://api.udpadijaya.com/storage/${nonbondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
                                 <td class="w-44 flex flex-row gap-2 items-center justify-center py-2 text-xs">
                                     <button @click="() => $router.push(`/admin/updateNB/${nonbondedwood.id}`)" class="bg-color3 hover:bg-color3/95 text-white px-3 py-2 rounded-3xl">Ubah</button>
                                     <button @click="deleteNonB(nonbondedwood.id)" class="bg-red-700 hover:bg-red-700/95 text-white px-3 py-2 rounded-3xl">Hapus</button>

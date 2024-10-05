@@ -10,7 +10,7 @@
             <h6 class="text-color6 font-dm text-xl tracking-widest text-center">SELAMAT DATANG DI </h6>
         </div>
     </div>
-    <div class="w-full h-auto pb-20 flex flex-col justify-center relative overflow-hidden gap-20 bg-color1/20 z-20">
+    <div class="w-full h-auto pb-20 flex flex-col justify-center relative overflow-hidden gap-20 bg-color1/20 z-0">
         <div class="w-full mt-20 flex justify-center">
             <h1 class="font-dm px-20 text-color5 font-extrabold text-lg md:text-xl lg:text-3xl text-center tracking-widest">JUAL BELI KAYU ASLI INDONESIA</h1>
         </div>
@@ -21,7 +21,7 @@
                         <img class="animate-bounce w-20 h-20" src="@\assets\star.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">BERKUALITAS</h1>
-                            <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
+                            <h1 class="text-center text-sm font-dm font-light">Kami berkomitmen untuk selalu menyediakan kayu yang berkualitas tinggi.</h1>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <img class="animate-bounce w-20 h-20" src="@\assets\discount.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">TERJANGKAU</h1>
-                            <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
+                            <h1 class="text-center text-sm font-dm font-light">Kami menyediakan kayu berkualitas dengan harga yang pas sehingga anda puas, uang pun tidak terkuras</h1>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <img class="animate-bounce w-20 h-20" src="@\assets\product.png" alt="">
                         <div class="h-1/2">
                             <h1 class="text-center font-dela">KUANTITAS</h1>
-                            <h1 class="text-center text-sm font-dm font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsam?</h1>
+                            <h1 class="text-center text-sm font-dm font-light">Stok kayu kami banyak. Tentu kamu unggul dalam segi kuantitas. Kami terus memasok kayu berkualitas</h1>
                         </div>
                     </div>
                 </div>

@@ -44,7 +44,7 @@ const login = async () => {
     }
 
     try {
-        const response = await axios.post('http://localhost:8000/api/login', {
+        const response = await axios.post('http://api.udpadijaya.com/api/login', {
             email: email.value,
             password: password.value,
         });
@@ -81,8 +81,8 @@ onMounted(() => {
     <div class="w-full h-screen flex items-center justify-center bg-color1/20">
         <div class="lg:w-[30%] lg:h-[85%] w-full h-full lg:shadow-full rounded-3xl pt-10 flex flex-col lg:bg-white">
             <div class="w-full h-auto flex justify-center">
-                <div class="w-36 h-36 lg:w-32 lg:h-32 border border-black">
-                    logo
+                <div class="w-36 h-36 lg:w-32 lg:h-32">
+                    <img src="@\assets\PADIJAYA.png" alt="">
                 </div>
             </div>
             <h1 class="px-5 pt-7 font-dm font-bold text-color3">Login Admin Padi Jaya</h1>

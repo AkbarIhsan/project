@@ -20,7 +20,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div class="w-full h-16 lg:px-20 px-14 flex flex-row shadow-lg rounded-b-full justify-between items-center bg-white">
+    <div class="w-full h-16 lg:px-20 px-14 flex flex-row shadow-lg rounded-b-full fixed justify-between items-center bg-white z-30">
         <div>
             <h1 class="font-archivo lg:text-2xl text-color2">UD. PADI JAYA</h1>
         </div>

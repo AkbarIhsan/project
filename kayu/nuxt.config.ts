@@ -9,7 +9,10 @@ export default defineNuxtConfig({
   ],
   app:{
     head:{
-      title: 'UD. Padi Jaya'
+      title: 'UD. Padi Jaya',
+      link:[
+        {rel: 'icon', type: 'image/png', href: '/PADIJAYA.png'}
+      ]
     }
   }
 })
