@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     head:{
       title: 'UD. Padi Jaya',
       link:[
-        {rel: 'icon', type: 'image/png', href: '/iconpj.png'}
+        {rel: 'icon', type: 'image/png', href: "https://i.ibb.co.com/MSpJbRj/PADI-JAYA-use-font.png"}
       ]
     }
   }
