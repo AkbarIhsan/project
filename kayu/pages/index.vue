@@ -51,114 +51,133 @@
             </div>
 
             <!-- tabel harga -->
-            <table class="w-full font-dm">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="5" class="bg-color2 text-color1 rounded-t-3xl py-3">Bonded</th>
-                    </tr>
-                    <tr class="bg-color4/20 text-color2 text-center">
-                        <th>Jenis Kayu</th>
-                        <th>Kayu</th>
-                        <th>Ukuran</th>
-                        <th>Isi/m3</th>
-                        <th>Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(bondedwood) in bondedwoods" :key="bondedwood.id" class="text-center">
-                        <td>{{ bondedwood.type_name }}</td>
-                        <td>{{ bondedwood.wood_name }}</td>
-                        <td>{{ bondedwood.size }}</td>
-                        <td>{{ bondedwood.quantity }}</td>
-                        <td>{{ bondedwood.price }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Menampilkan tabel bonded wood untuk setiap wood_name -->
+            <div v-for="(woodGroup, woodName) in groupedBondedwoods" :key="woodName" class="w-full">
+                <table class="w-full font-dm mt-5">
+                    <thead>
+                        <tr class="text-center">
+                            <th colspan="5" class="bg-color2 text-color1 rounded-t-3xl py-3">{{ woodName }}</th>
+                        </tr>
+                        <tr class="bg-color4/20 text-color2 text-center">
+                            <th>Jenis Kayu</th>
+                            <th>Ukuran</th>
+                            <th>Isi/m3</th>
+                            <th>Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="bondedwood in woodGroup" :key="bondedwood.id" class="text-center">
+                            <td>{{ bondedwood.type_name }}</td>
+                            <td>{{ bondedwood.size }}</td>
+                            <td>{{ bondedwood.quantity }}</td>
+                            <td>{{ bondedwood.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <table class="w-full font-dm">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="5" class="bg-color2 text-color1 rounded-t-3xl py-3">Non Bonded</th>
-                    </tr>
-                    <tr class="bg-color4/20 text-color2 text-center">
-                        <th>Jenis Kayu</th>
-                        <th>Kayu</th>
-                        <th>Ukuran</th>
-                        <th>Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(nonbondedwood) in nonbondedwoods" :key="nonbondedwood.id" class="text-center">
-                        <td>{{ nonbondedwood.type_name }}</td>
-                        <td>{{ nonbondedwood.wood_name }}</td>
-                        <td>{{ nonbondedwood.size }}</td>
-                        <td>{{ nonbondedwood.price }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Menampilkan tabel non bonded wood untuk setiap wood_name -->
+            <div v-for="(woodGroup, woodName) in groupedNonBondedwoods" :key="woodName" class="w-full mt-10">
+                <table class="w-full font-dm mt-5">
+                    <thead>
+                        <tr class="text-center">
+                            <th colspan="4" class="bg-color2 text-color1 rounded-t-3xl py-3">{{ woodName }}</th>
+                        </tr>
+                        <tr class="bg-color4/20 text-color2 text-center">
+                            <th>Jenis Kayu</th>
+                            <th>Ukuran</th>
+                            <th>Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="nonbondedwood in woodGroup" :key="nonbondedwood.id" class="text-center">
+                            <td>{{ nonbondedwood.type_name }}</td>
+                            <td>{{ nonbondedwood.size }}</td>
+                            <td>{{ nonbondedwood.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-    import { onMounted } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 
-    interface ApiResponse<T> {
-        message: string;
-        data: T;
+interface ApiResponse<T> {
+    message: string;
+    data: T;
+}
+
+interface Bonded_woods {
+    id: number;
+    type_name: string;
+    wood_name: string;
+    image: string;
+    size: string;
+    price: number;
+    quantity: string;
+}
+
+interface Non_Bonded_woods {
+    id: number;
+    type_name: string;
+    wood_name: string;
+    image: string;
+    size: string;
+    price: number;
+}
+
+// State untuk menyimpan data produk
+const bondedwoods = ref<Bonded_woods[]>([]);
+const nonbondedwoods = ref<Non_Bonded_woods[]>([]);
+
+// Fungsi untuk fetch data dari API
+const fetchBwood = async () => {
+    try {
+        const response = await useNuxtApp().$axios.get<Bonded_woods[]>('/productBonded');
+        bondedwoods.value = response.data;
+        console.log('Data fetched:', response.data); // Cek data respons di sini
+    } catch (error) {
+        console.error('Error fetching products:', error);
     }
+};
 
-
-    interface Bonded_woods {
-        id: number;
-        type_name: string; // Tambahkan type_name
-        wood_name: string; // Tambahkan wood_name
-        image: string;
-        size: string;
-        price: number;
-        quantity: string;
+const fetchNBwood = async () => {
+    try {
+        const response = await useNuxtApp().$axios.get<ApiResponse<Non_Bonded_woods[]>>('/productNonBonded');
+        nonbondedwoods.value = response.data.data; // Mengakses data dari properti 'data'
+        console.log('Data fetched:', response.data.data);
+    } catch (error) {
+        console.error('Error fetching products:', error);
     }
+};
 
-    interface Non_Bonded_woods {
-        id: number;
-        type_name: string; // Tambahkan type_name
-        wood_name: string; // Tambahkan wood_name
-        image: string;
-        size: string;   
-        price: number;
-        quantity: string;
-    }
-
-    // State untuk menyimpan data produk
-    const bondedwoods = ref<Bonded_woods[]>([]);
-    const nonbondedwoods = ref<Non_Bonded_woods[]>([]);
-
-    // Fungsi untuk fetch data dari API
-    const fetchBwood = async () => {
-        try {
-            const response = await useNuxtApp().$axios.get<Bonded_woods[]>('/productBonded', {
-            });
-            bondedwoods.value = response.data;
-            console.log('Data fetched:', response.data); // Cek data respons di sini
-        } catch (error) {
-            console.error('Error fetching products:', error);
+// Kelompokkan bondedwoods berdasarkan wood_name
+const groupedBondedwoods = computed(() => {
+    return bondedwoods.value.reduce((grouped: Record<string, Bonded_woods[]>, wood) => {
+        if (!grouped[wood.wood_name]) {
+            grouped[wood.wood_name] = [];
         }
-    };
+        grouped[wood.wood_name].push(wood);
+        return grouped;
+    }, {});
+});
 
-    const fetchNBwood = async () => {
-        try {
-            const response = await useNuxtApp().$axios.get<ApiResponse<Non_Bonded_woods[]>>('/productNonBonded', {
-            });
-            nonbondedwoods.value = response.data.data; // Mengakses data dari properti 'data'
-            console.log('Data fetched:', response.data.data);
-        } catch (error) {
-            console.error('Error fetching products:', error);
+// Kelompokkan nonbondedwoods berdasarkan wood_name
+const groupedNonBondedwoods = computed(() => {
+    return nonbondedwoods.value.reduce((grouped: Record<string, Non_Bonded_woods[]>, wood) => {
+        if (!grouped[wood.wood_name]) {
+            grouped[wood.wood_name] = [];
         }
-    };
+        grouped[wood.wood_name].push(wood);
+        return grouped;
+    }, {});
+});
 
-
-    onMounted(()=>{
-        fetchNBwood();
-        fetchBwood();
-    });
+onMounted(() => {
+    fetchNBwood();
+    fetchBwood();
+});
 </script>
