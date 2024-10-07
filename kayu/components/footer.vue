@@ -8,7 +8,9 @@
             <div class="flex flex-row w-full h-auto justify-between pt-5">
                 <div class="flex flex-col w-1/3 h-full gap-y-4">
                     <h1 class="text-color2 font-semibold">Tentang Kami</h1>
-                    <p class="text-color3 font-thin text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed non rem dolores necessitatibus tempora! Quibusdam fugit magni animi! Accusamus enim dolorem nihil ut beatae sapiente cupiditate atque officia!</p>
+                    <p class="text-color3 font-thin text-sm">
+                        Visi kami adalah menjadi pilihan utama bagi mereka yang mencari kayu berkualitas, dengan pelayanan yang ramah dan profesional. Kami percaya bahwa setiap pelanggan layak mendapatkan produk terbaik dan pengalaman berbelanja yang menyenangkan.
+                    </p>
                 </div>
                 <div class="flex flex-col items-center w-1/4 ">
                     <div class="flex flex-col gap-y-4">

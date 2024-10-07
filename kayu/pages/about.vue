@@ -10,10 +10,10 @@
             <div class="w-full flex flex-col gap-5 px-5 lg:px-10">
                 <div>
                     <h1 class="font-dela text-2xl text-color6">TENTANG KAMI</h1>
-                    <h2 class="text-xs">Lorem ipsum dolor sit amet.</h2>
+                    <h2 class="text-xs">Platform terpercaya untuk memenuhi kebutuhan kayu berkualitas tinggi.</h2>
                 </div>
                 <p class="font-dm text-sm lg:text-base">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eum sunt sequi eveniet, vero magnam blanditiis dicta voluptas quisquam distinctio at, dolorem libero ullam! Officia cupiditate eius aut eaque ducimus!
+                    Visi kami adalah menjadi pilihan utama bagi mereka yang mencari kayu berkualitas, dengan pelayanan yang ramah dan profesional. Kami percaya bahwa setiap pelanggan layak mendapatkan produk terbaik dan pengalaman berbelanja yang menyenangkan.
                 </p>
             </div>
             <div class="w-full justify-center items-center hidden lg:flex">

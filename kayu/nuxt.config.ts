@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     head:{
       title: 'UD. Padi Jaya',
       link:[
-        {rel: 'icon', type: 'image/png', href: '/PADIJAYA.png'}
+        {rel: 'icon', type: 'image/png', href: '/iconpj.png'}
       ]
     }
   }
