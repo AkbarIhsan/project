@@ -91,7 +91,7 @@ const submitForm = async () => {
         console.log('Form Data:', Array.from(formDataToSubmit.entries()));
 
         // Mengirim permintaan POST
-        const response = await axios.post('http://api.udpadijaya.com/api/non-bonded-woods', formDataToSubmit, {
+        const response = await axios.post('https://api.udpadijaya.com/api/non-bonded-woods', formDataToSubmit, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

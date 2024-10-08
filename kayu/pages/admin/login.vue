@@ -44,7 +44,7 @@ const login = async () => {
     }
 
     try {
-        const response = await axios.post('http://api.udpadijaya.com/api/login', {
+        const response = await axios.post('https://api.udpadijaya.com/api/login', {
             email: email.value,
             password: password.value,
         });

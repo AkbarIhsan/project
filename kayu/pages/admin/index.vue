@@ -256,7 +256,7 @@
                                 <td>{{ bondedwood.size }}</td>
                                 <td>{{ bondedwood.quantity }}</td>
                                 <td>{{ bondedwood.price }}</td>
-                                <td class="w-32"><img :src="`http://api.udpadijaya.com/storage/${bondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
+                                <td class="w-32"><img :src="`https://api.udpadijaya.com/storage/${bondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
                                 <td class="w-44 flex flex-row gap-2 items-center justify-center py-2 text-xs">
                                     <button @click="() => $router.push(`/admin/updateB/${bondedwood.id}`)" class="bg-color3 hover:bg-color3/95 text-white px-3 py-2 rounded-3xl">Ubah</button>
                                     <button @click="deleteKayu(bondedwood.id)" class="bg-red-700 hover:bg-red-700/95 text-white px-3 py-2 rounded-3xl">Hapus</button>
@@ -287,7 +287,7 @@
                                 <td>{{ nonbondedwood.wood_name }}</td>
                                 <td>{{ nonbondedwood.size }}</td>
                                 <td>{{ nonbondedwood.price }}</td>
-                                <td class="w-32"><img :src="`http://api.udpadijaya.com/storage/${nonbondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
+                                <td class="w-32"><img :src="`https://api.udpadijaya.com/storage/${nonbondedwood.image}`" alt="gambar kayu" class="w-16 h-16 ml-7 object-cover" /></td>
                                 <td class="w-44 flex flex-row gap-2 items-center justify-center py-2 text-xs">
                                     <button @click="() => $router.push(`/admin/updateNB/${nonbondedwood.id}`)" class="bg-color3 hover:bg-color3/95 text-white px-3 py-2 rounded-3xl">Ubah</button>
                                     <button @click="deleteNonB(nonbondedwood.id)" class="bg-red-700 hover:bg-red-700/95 text-white px-3 py-2 rounded-3xl">Hapus</button>

@@ -16,7 +16,7 @@
 
         console.log('Data yang dikirim:', data);
 
-        const response = await axios.post('http://api.udpadijaya.com/api/type-woods', data, {
+        const response = await axios.post('https://api.udpadijaya.com/api/type-woods', data, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
