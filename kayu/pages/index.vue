@@ -105,79 +105,89 @@
 <script lang="ts" setup>
 import { computed, ref, onMounted } from 'vue';
 
-interface ApiResponse<T> {
-    message: string;
-    data: T;
-}
-
-interface Bonded_woods {
-    id: number;
-    type_name: string;
-    wood_name: string;
-    image: string;
-    size: string;
-    price: number;
-    quantity: string;
-}
-
-interface Non_Bonded_woods {
-    id: number;
-    type_name: string;
-    wood_name: string;
-    image: string;
-    size: string;
-    price: number;
-}
-
-// State untuk menyimpan data produk
-const bondedwoods = ref<Bonded_woods[]>([]);
-const nonbondedwoods = ref<Non_Bonded_woods[]>([]);
-
-// Fungsi untuk fetch data dari API
-const fetchBwood = async () => {
-    try {
-        const response = await useNuxtApp().$axios.get<Bonded_woods[]>('/productBonded');
-        bondedwoods.value = response.data;
-        console.log('Data fetched:', response.data); // Cek data respons di sini
-    } catch (error) {
-        console.error('Error fetching products:', error);
-    }
-};
-
-const fetchNBwood = async () => {
-    try {
-        const response = await useNuxtApp().$axios.get<ApiResponse<Non_Bonded_woods[]>>('/productNonBonded');
-        nonbondedwoods.value = response.data.data; // Mengakses data dari properti 'data'
-        console.log('Data fetched:', response.data.data);
-    } catch (error) {
-        console.error('Error fetching products:', error);
-    }
-};
-
-// Kelompokkan bondedwoods berdasarkan wood_name
-const groupedBondedwoods = computed(() => {
-    return bondedwoods.value.reduce((grouped: Record<string, Bonded_woods[]>, wood) => {
-        if (!grouped[wood.wood_name]) {
-            grouped[wood.wood_name] = [];
+    useHead({
+    title: 'UD Padi Jaya | Supplier Kayu Berkualitas',
+    meta: [
+        {
+        name: 'description',
+        content: 'UD Padi Jaya berkomitmen untuk menyediakan berbagai jenis kayu dengan standar mutu terbaik, baik untuk keperluan konstruksi, furnitur, maupun proyek kreatif lainnya.'
         }
-        grouped[wood.wood_name].push(wood);
-        return grouped;
-    }, {});
-});
+    ]
+    })
 
-// Kelompokkan nonbondedwoods berdasarkan wood_name
-const groupedNonBondedwoods = computed(() => {
-    return nonbondedwoods.value.reduce((grouped: Record<string, Non_Bonded_woods[]>, wood) => {
-        if (!grouped[wood.wood_name]) {
-            grouped[wood.wood_name] = [];
+    interface ApiResponse<T> {
+        message: string;
+        data: T;
+    }
+
+    interface Bonded_woods {
+        id: number;
+        type_name: string;
+        wood_name: string;
+        image: string;
+        size: string;
+        price: number;
+        quantity: string;
+    }
+
+    interface Non_Bonded_woods {
+        id: number;
+        type_name: string;
+        wood_name: string;
+        image: string;
+        size: string;
+        price: number;
+    }
+
+    // State untuk menyimpan data produk
+    const bondedwoods = ref<Bonded_woods[]>([]);
+    const nonbondedwoods = ref<Non_Bonded_woods[]>([]);
+
+    // Fungsi untuk fetch data dari API
+    const fetchBwood = async () => {
+        try {
+            const response = await useNuxtApp().$axios.get<Bonded_woods[]>('/productBonded');
+            bondedwoods.value = response.data;
+            console.log('Data fetched:', response.data); // Cek data respons di sini
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
-        grouped[wood.wood_name].push(wood);
-        return grouped;
-    }, {});
-});
+    };
 
-onMounted(() => {
-    fetchNBwood();
-    fetchBwood();
-});
+    const fetchNBwood = async () => {
+        try {
+            const response = await useNuxtApp().$axios.get<ApiResponse<Non_Bonded_woods[]>>('/productNonBonded');
+            nonbondedwoods.value = response.data.data; // Mengakses data dari properti 'data'
+            console.log('Data fetched:', response.data.data);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+
+    // Kelompokkan bondedwoods berdasarkan wood_name
+    const groupedBondedwoods = computed(() => {
+        return bondedwoods.value.reduce((grouped: Record<string, Bonded_woods[]>, wood) => {
+            if (!grouped[wood.wood_name]) {
+                grouped[wood.wood_name] = [];
+            }
+            grouped[wood.wood_name].push(wood);
+            return grouped;
+        }, {});
+    });
+
+    // Kelompokkan nonbondedwoods berdasarkan wood_name
+    const groupedNonBondedwoods = computed(() => {
+        return nonbondedwoods.value.reduce((grouped: Record<string, Non_Bonded_woods[]>, wood) => {
+            if (!grouped[wood.wood_name]) {
+                grouped[wood.wood_name] = [];
+            }
+            grouped[wood.wood_name].push(wood);
+            return grouped;
+        }, {});
+    });
+
+    onMounted(() => {
+        fetchNBwood();
+        fetchBwood();
+    });
 </script>
