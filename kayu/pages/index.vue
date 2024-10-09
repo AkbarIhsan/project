@@ -105,16 +105,6 @@
 <script lang="ts" setup>
 import { computed, ref, onMounted } from 'vue';
 
-    useHead({
-    title: 'UD Padi Jaya | Supplier Kayu Berkualitas',
-    meta: [
-        {
-        name: 'description',
-        content: 'UD Padi Jaya berkomitmen untuk menyediakan berbagai jenis kayu dengan standar mutu terbaik, baik untuk keperluan konstruksi, furnitur, maupun proyek kreatif lainnya.'
-        }
-    ]
-    })
-
     interface ApiResponse<T> {
         message: string;
         data: T;

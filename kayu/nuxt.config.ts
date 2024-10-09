@@ -12,7 +12,13 @@ export default defineNuxtConfig({
       title: 'UD. Padi Jaya',
       link:[
         {rel: 'icon', type: 'image/png', href: "https://i.ibb.co.com/MSpJbRj/PADI-JAYA-use-font.png"}
+      ],
+      meta:[
+        {
+          name: 'description',
+          content:'UD Padi Jaya berkomitmen untuk menyediakan berbagai jenis kayu dengan standar mutu terbaik, baik untuk keperluan konstruksi, furnitur, maupun proyek kreatif lainnya.'
+        }
       ]
     }
-  }
+  },
 })
